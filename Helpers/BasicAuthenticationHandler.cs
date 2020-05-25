@@ -41,7 +41,9 @@ namespace SimpleApi.Helpers
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);
                 var username = credentials[0];
                 var password = credentials[1];
+                //Sprawdzanie czy uzytkownik i haslo zgadza sie z tym co jest w user
                 user = await _userService.Authenticate(username, password);
+
             }
             catch
             {
@@ -52,7 +54,6 @@ namespace SimpleApi.Helpers
                 return AuthenticateResult.Fail("Invalid Username or Password");
 
             var claims = new[] {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Username),
             };
             var identity = new ClaimsIdentity(claims, Scheme.Name);

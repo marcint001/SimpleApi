@@ -21,7 +21,7 @@ namespace SimpleAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>()
-                        .UseUrls("http://localhost:8000");
+                        .UseUrls("http://localhost:9000");
                 });
     }
 }

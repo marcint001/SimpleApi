@@ -14,21 +14,13 @@ namespace SimpleAPI.Services
 
     public class CarsService : ICarService
     {
-        
         private List<Cars> _cars = new List<Cars>
         {
             new Cars {  CarName = "Audi", CarYear = "2017" }
         };
-
-     
-
           public async Task<IEnumerable<Cars>> GetAll()
         {
             return await Task.Run(() => _cars.ShowCars());
         }
-
-       
     }
-
-   
 }
