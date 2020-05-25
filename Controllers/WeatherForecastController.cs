@@ -35,7 +35,7 @@ namespace SimpleAPI.Controllers
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
             
-            var cars = await _userService.GetAll();
+            var cars = await _carService.GetAll();
             return Ok(cars);
         }
 
